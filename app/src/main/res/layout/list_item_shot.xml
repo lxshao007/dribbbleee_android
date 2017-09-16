@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <ImageView
+        android:id="@+id/shot_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shot_image_height"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/shot_image"
+        android:src="@drawable/shot_placeholder"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_shot_detail_bar_height">
+
+        <TextView
+            android:id="@+id/shot_view_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            android:drawableLeft="@drawable/ic_visibility_grey_500_18dp"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:layout_centerVertical="true"
+            tools:text="78" />
+
+        <TextView
+        android:id="@+id/shot_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/shot_view_count"
+        android:layout_marginLeft="@dimen/spacing_medium"
+        android:drawableLeft="@drawable/ic_favorite_grey_500_18dp"
+        android:drawablePadding="@dimen/drawable_padding"
+        android:layout_centerVertical="true"
+        tools:text="78"/>
+
+        <TextView
+            android:id="@+id/shot_bucket_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/shot_like_count"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            android:drawableLeft="@drawable/ic_inbox_grey_500_18dp"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:layout_centerVertical="true"
+            tools:text="78"/>
+    </RelativeLayout>
+
+</LinearLayout>
