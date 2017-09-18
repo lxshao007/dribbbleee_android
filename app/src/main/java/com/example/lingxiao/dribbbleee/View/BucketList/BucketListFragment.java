@@ -1,4 +1,4 @@
-package com.example.lingxiao.dribbbleee.View.ShotList;
+package com.example.lingxiao.dribbbleee.View.BucketList;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,10 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
+import com.example.lingxiao.dribbbleee.Model.Bucket;
 import com.example.lingxiao.dribbbleee.Model.Shot;
 import com.example.lingxiao.dribbbleee.R;
+import com.example.lingxiao.dribbbleee.View.ShotList.ShotListAdapter;
+import com.example.lingxiao.dribbbleee.View.ShotList.ShotListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +23,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by lingxiao on 9/15/17.
+ * Created by lingxiao on 9/17/17.
  */
 
-public class ShotListFragment extends Fragment {
+public class BucketListFragment extends Fragment {
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
 
-    @BindView(R.id.recycler_view) RecyclerView recyclerView;
-
-    public static ShotListFragment newInstance() {
-        return new ShotListFragment();
+    public static BucketListFragment newInstance() {
+        return new BucketListFragment();
     }
 
     @Nullable
@@ -45,21 +47,23 @@ public class ShotListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ShotListAdapter adapter = new ShotListAdapter(fakeData());
+        BucketListAdapter adapter = new BucketListAdapter(fakeData());
         recyclerView.setAdapter(adapter);
 
     }
 
-    private List<Shot> fakeData() {
-        List<Shot> shotList = new ArrayList<>();
+    private List<Bucket> fakeData() {
+        List<Bucket> bucketList = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 20; ++i) {
-            Shot shot = new Shot();
-            shot.views_count = random.nextInt(10000);
-            shot.likes_count = random.nextInt(200);
-            shot.buckets_count = random.nextInt(50);
-            shotList.add(shot);
+            Bucket bucket = new Bucket();
+            bucket.name = "bucket" + i;
+            bucket.shot_counts = random.nextInt(50);
+            bucket.isChoosing = false;
+
+            bucketList.add(bucket);
         }
-        return shotList;
+        return bucketList;
     }
+
 }

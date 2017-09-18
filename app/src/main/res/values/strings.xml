@@ -4,4 +4,6 @@
     <string name="drawer_menu_likes">Likes</string>
     <string name="drawer_menu_buckets">Buckets</string>
     <string name="shot_image">Shot image</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
 </resources>
