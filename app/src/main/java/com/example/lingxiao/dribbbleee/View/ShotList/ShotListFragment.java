@@ -16,6 +16,7 @@ import com.example.lingxiao.dribbbleee.Model.User;
 import com.example.lingxiao.dribbbleee.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -28,7 +29,11 @@ import butterknife.ButterKnife;
 
 public class ShotListFragment extends Fragment {
 
+
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
+
+    private ShotListAdapter adapter;
+    private static final int COUNT_PER_PAGE = 20;
 
     public static ShotListFragment newInstance() {
         return new ShotListFragment();
@@ -47,7 +52,29 @@ public class ShotListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ShotListAdapter adapter = new ShotListAdapter(fakeData());
+        adapter = new ShotListAdapter(fakeData(), new ShotListAdapter.LoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            final List<Shot> moreData = fakeData();
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter.appendData(moreData);
+                                    adapter.setShowLoading(moreData.size() >= COUNT_PER_PAGE);
+                                }
+                            });
+                        }catch (InterruptedException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
         recyclerView.setAdapter(adapter);
 
     }
@@ -62,6 +89,9 @@ public class ShotListFragment extends Fragment {
             shot.likes_count = random.nextInt(200);
             shot.buckets_count = random.nextInt(50);
             shot.description = makeDescription();
+
+            shot.images = new HashMap<>();
+            shot.images.put(Shot.IMAGE_HIDPI, imageUrls[random.nextInt(imageUrls.length)]);
 
             shot.user = new User();
             shot.user.name = shot.title + " author";
@@ -78,6 +108,29 @@ public class ShotListFragment extends Fragment {
             "pear", "pen", "pencil", "phone", "physicist", "planet", "potato", "road", "salad",
             "shoe", "slipper", "soup", "spoon", "star", "steak", "table", "terminal", "treehouse",
             "truck", "watermelon", "window"
+    };
+
+    private static final String[] imageUrls = {
+            "https://d13yacurqjgara.cloudfront.net/users/58851/screenshots/3400841/dribbble_pretoria-04.png",
+            "https://d13yacurqjgara.cloudfront.net/users/41719/screenshots/3400864/octowheel.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/1008875/screenshots/3399601/old-pc.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/4381/screenshots/3400780/dribbble-1.png",
+            "https://d13yacurqjgara.cloudfront.net/users/559871/screenshots/3401056/gradient_fox.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/79723/screenshots/3401386/untitled-9-01.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/698/screenshots/3401039/ss-2017-cover.png",
+            "https://d13yacurqjgara.cloudfront.net/users/45389/screenshots/3400936/portfolium-spaceman.png",
+            "https://d13yacurqjgara.cloudfront.net/users/65767/screenshots/3400922/peter_deltondo_virta_health_iphone_responsive_mobile_menu_2x.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/203446/screenshots/3400931/bitmap.png",
+            "https://d13yacurqjgara.cloudfront.net/users/235360/screenshots/3400791/how-to.png",
+            "https://d13yacurqjgara.cloudfront.net/users/58267/screenshots/3401160/people-socks-rebranding.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/363877/screenshots/3400983/gentle-bird-w.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/33298/screenshots/3400699/dribhat2.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/879147/screenshots/3401051/aaa.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/98561/screenshots/3401583/new_user_experience_style_frames_1x.png",
+            "https://d13yacurqjgara.cloudfront.net/users/371094/screenshots/3401298/richkid.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/875337/screenshots/3400965/bg-plane.jpg",
+            "https://d13yacurqjgara.cloudfront.net/users/1365782/screenshots/3399506/new_copy_18.png",
+            "https://d13yacurqjgara.cloudfront.net/users/44338/screenshots/3401460/aw1_drib.png"
     };
 
     private static String makeDescription() {

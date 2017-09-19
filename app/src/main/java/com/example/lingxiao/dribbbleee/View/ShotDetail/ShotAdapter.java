@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.lingxiao.dribbbleee.Model.Shot;
 import com.example.lingxiao.dribbbleee.R;
 
@@ -46,7 +47,10 @@ public class ShotAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         switch (position){
             case VIEW_TYPE_SHOT_IMAGE:
-                // do nothing, we just show the image specified in shot_item_image.xml
+                Glide.with(holder.itemView.getContext())
+                        .load(shot.getImageUrl())
+                        .placeholder(R.drawable.shot_placeholder)
+                        .into(((ImageViewHolder) holder).image);
                 break;
             case VIEW_TYPE_SHOT_INFO:
                 InfoViewHolder shotDetailViewHolder = (InfoViewHolder) holder;
