@@ -6,4 +6,8 @@
     <string name="shot_image">Shot image</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
+    <string name="like">Likes</string>
+    <string name="bucket">Bucket</string>
+    <string name="share">Share</string>
+    <string name="shot_author_picture">Author picture</string>
 </resources>

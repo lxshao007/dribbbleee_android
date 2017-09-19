@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.lingxiao.dribbbleee.R;
@@ -21,6 +22,7 @@ public class ShotListViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.shot_like_count) public TextView like_count;
     @BindView(R.id.shot_bucket_count) public TextView bucket_count;
     @BindView(R.id.shot_image) public ImageView shot_image;
+    @BindView(R.id.shot_list_cover) LinearLayout shot_list_cover;
 
     public ShotListViewHolder(View itemView) {
         super(itemView);

@@ -15,6 +15,11 @@
 
     <dimen name="nav_header_height">192dp</dimen>
     <dimen name="bucket_name">17sp</dimen>
+    <dimen name="shot_action_drawable_top_icon_padding">7dp</dimen>
+    <dimen name="shot_action_icon_size">32dp</dimen>
+    <dimen name="shot_author_picture_size">48dp</dimen>
+    <dimen name="shot_author_picture_radius">24dp</dimen>
+    <dimen name="shot_detail_author_name">17sp</dimen>
 
 
 </resources>
