@@ -7,14 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.lingxiao.dribbbleee.Model.Shot;
-import com.example.lingxiao.dribbbleee.R;
 import com.example.lingxiao.dribbbleee.Utils.ModelUtils;
 import com.example.lingxiao.dribbbleee.View.ShotDetail.ShotActivity;
 import com.example.lingxiao.dribbbleee.View.ShotDetail.ShotFragment;
+import com.example.lingxiao.dribbbleee.R;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
@@ -105,6 +104,10 @@ public class ShotListAdapter extends RecyclerView.Adapter {
     public void appendData(@NonNull List<Shot> moreShots) {
         data.addAll(moreShots);
         notifyDataSetChanged();
+    }
+
+    public int getDataCount() {
+        return data.size();
     }
 
     public void setShowLoading(boolean showLoading) {

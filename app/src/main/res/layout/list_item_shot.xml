@@ -4,7 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/shot_list_cover">
+    android:id="@+id/shot_list_cover"
+    android:paddingBottom="@dimen/spacing_medium">
+
     
     <ImageView
         android:id="@+id/shot_image"

@@ -11,14 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.lingxiao.dribbbleee.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.ShotDetail.ShotActivity"></activity>
+
+        <activity android:name="com.example.lingxiao.dribbbleee.MainActivity" />
+
+
+        <activity android:name="com.example.lingxiao.dribbbleee.View.ShotDetail.ShotActivity" />
+
+        <activity android:name="com.example.lingxiao.dribbbleee.dribbble.AuthActivity"/>
     </application>
 
 </manifest>

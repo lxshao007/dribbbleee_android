@@ -10,10 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lingxiao.dribbbleee.Model.Bucket;
-import com.example.lingxiao.dribbbleee.Model.Shot;
 import com.example.lingxiao.dribbbleee.R;
-import com.example.lingxiao.dribbbleee.View.ShotList.ShotListAdapter;
-import com.example.lingxiao.dribbbleee.View.ShotList.ShotListFragment;
 
 import java.util.ArrayList;
 import java.util.List;

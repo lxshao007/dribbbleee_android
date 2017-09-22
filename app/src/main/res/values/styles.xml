@@ -8,6 +8,16 @@
 
     </style>
 
+    <style name="AppTheme.TextView" />
+
+    <style name="AppTheme.TextView.1" parent="AppTheme.TextView">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="AppTheme.TextView.1.Black" parent="AppTheme.TextView.1">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 
 
 </resources>

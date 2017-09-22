@@ -2,6 +2,7 @@ package com.example.lingxiao.dribbbleee.Model;
 
 import android.support.annotation.Nullable;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -17,15 +18,22 @@ public class Shot {
     public String title;
     public String description;
     public String html_url;
+
+    public int width;
+    public int height;
+    public Map<String, String> images;
     public boolean animated;
 
-    public int likes_count;
     public int views_count;
+    public int likes_count;
     public int buckets_count;
 
-    public Map<String, String> images;
+    public Date created_at;
 
     public User user;
+
+    public boolean liked;
+    public boolean bucketed;
 
     @Nullable
     public String getImageUrl() {
