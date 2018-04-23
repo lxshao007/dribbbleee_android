@@ -29,7 +29,7 @@ public class Dribbble {
 
     private static final String TAG = "Dribbble API";
 
-    private static final String API_URL = "https://api.dribbble.com/v1/";
+    private static final String API_URL = "https://api.dribbble.com/v2/";
 
     private static final String SHOTS_END_POINT = API_URL + "shots";
     private static final String USER_END_POINT = API_URL + "user";

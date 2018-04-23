@@ -37,9 +37,8 @@ public class Auth {
 
     private static final String CLIENT_ID = "57ec721fc062ea48e2823814f4c8fc83338fc1d64b6527c62fafbcdd2c294e92";
 
-    private static final String CLIENT_SECRET = ClientSecret.CLIENT_SECRET;
+    private static final String CLIENT_SECRET = "51bcb655b968a94a2ad844874326fa9ead9e9ff36fe5ee5f897cfc638be770a4";
 
-    private static final String CLIENT_ACCESS_TOKEN = "c4acf890626c0b8c8785f159607970fd073187d31855c106aa33c053f15e6f7e";
 
     private static final String SCOPE = "public+write";
 
@@ -55,7 +54,7 @@ public class Auth {
                 .build()
                 .toString();
 
-
+        url += "&" + KEY_REDIRECT_URI + "=" + REDIRECT_URI;
         url += "&" + KEY_SCOPE + "=" + SCOPE;
         return url;
     }

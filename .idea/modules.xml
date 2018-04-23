@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Andrippple.iml" filepath="$PROJECT_DIR$/Andrippple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Dribbbleee.iml" filepath="$PROJECT_DIR$/Dribbbleee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Andriple.iml" filepath="$PROJECT_DIR$/Andriple.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
